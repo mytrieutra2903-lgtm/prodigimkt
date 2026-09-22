@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .bia{ 
+            width: 79%;
+            height: 500px;
+            display: block;        
+            margin: 25px auto;
+            object-fit: cover; 
+    
+       
+
+        }
+        .story{
+            display: flex; /*căn cho ảnh và chữ float tự nhiên. Bạn đang sử dụng display: flex cho phần tử .story. Mặc định, flex sắp xếp các phần tử con theo hàng ngang (row)*/
+            text-align: left; /*căn trái text*/
+            gap: 100px; /*giữa ảnh và text*/
+            padding: 50px 250px;  /*cho cả ảnh và text, top bot là 30 còn left right là 250*/
+            justify-content: center;    /* Canh giữa toàn bộ block */ 
+            align-items: center;        /* Canh giữa ảnh và text theo chiều dọc */
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto /*để cho phần back màu trắng ra giữa*/ 
+        }
+        .prodigi{
+            flex: 2;
+            min-width: 500px;
+            
+        }
+        .prodigi h2 {
+            color: #1e3a5f;
+            font-size: 30px; 
+            margin-bottom: 20px;
+        }
+        .img {
+            width: 100%;           /* Chiếm toàn bộ phần flex được chia */
+            max-width: 400px;      /* Giới hạn kích thước tối đa nếu cần */
+            height: auto;          /* Tự động tính chiều cao theo tỉ lệ gốc */
+            flex: 1;
+            border-radius: 10px;   /* Nếu muốn bo góc đẹp hơn */
+
+        }
+        p {
+            text-align: justify; /*để text căn đều 2 bên*/
+        }
+        .subtext{
+            display:flex; /*div đoạn này để tách các text và ảnh ra thành các cột ngang nhau*/ 
+            text-align: left; 
+            gap: 100px;
+            padding: 20px 250px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 1200px;
+            margin: auto /*để cho phần back màu trắng ra giữa*/ 
+        }
+        .anh { 
+            display: flex; 
+            flex-direction: column; /* Xếp ảnh theo chiều dọc */
+            gap: 20px; 
+        }
+        .anh img {
+            border-radius: 10px; 
+            width: 400px;  /* Tăng kích thước ngang ảnh */
+            height: 100px;  /* Cho ảnh co chiều cao theo tỷ lệ */
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top:20px;
+            font-size: 30px;
+            color: #f9f9f9;
+        }
+        .vitri h2{
+            color: #f9f9f9;
+            font-size: 30px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+
+        }
+        .vitri {
+            padding: 30px 250px; 
+            text-align:center;
+        }
+        
+        .mota{
+            display: flex;
+            padding: 20px; /*tạo khoảng cách text với lề của từng ô*/ 
+            border: 1px solid #ccc;
+            border-radius: 10px; /*bo tròn ô*/ 
+            background-color: #f9f9f9;
+            margin-bottom: 20px; /*các ô giãn nhau ra */
+            text-align: left; 
+            align-items: center; /* giữ các phần tử con (text và nút) nằm trên cùng một hàng ngang */
+            
+        }
+        .textcon p {
+            margin: 4px 0; /*bot tom 4, right left 0*/ 
+        } 
+        .textcon h3 {
+            color: #1e3a5f
+        }
+        .apply {
+           display: block;
+            margin-left: auto;
+            background-color: #1e3a5f; /* màu hồng */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        } 
+        .apply:hover {
+            color: #c2185b; /* màu hồng đậm hơn khi hover */
+        }
+        .camnhan{
+            display:flex; /*căn cho ảnh và chữ float tự nhiên. Bạn đang sử dụng display: flex cho phần tử .story. Mặc định, flex sắp xếp các phần tử con theo hàng ngang (row)*/
+            text-align: left; /*căn trái text*/
+            padding: 10px 250px;  /*cho cả ảnh và text, top bot là 30 còn left right là 250*/
+            justify-content: center;    /* Canh giữa toàn bộ block */ 
+            align-items: center;  
+            flex-direction: column;   
+                  
+        }
+        .canhan{
+            display: flex; 
+            flex-direction: column; /* Xếp ảnh theo chiều dọc */
+            gap: 40px;      
+            
+        }
+        .nguoi {
+            display: flex;/* Xếp ảnh và text ngang hàng */
+            align-items: center; /* Canh giữa phần ảnh theo chiều dọc */
+            gap: 40px;/* Khoảng cách giữa ảnh và chữ */
+            margin-bottom: 40px;/* Khoảng cách giữa các phần cảm nhận */
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .canhan img {
+            width: 220px;         /* Giữ ảnh vừa mắt, không quá to */
+            max-height: 280px;    /* Hạn chế chiều cao */
+            object-fit: cover;    /* Ảnh đẹp, không méo */
+            border-radius: 10px;
+        }
+        .camnhan h2 {
+            color: #f9f9f9;
+            font-size: 30px;
+            margin-top:0px; 
+            margin-bottom: 35px;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            z-index: 0;
+        }
+        
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: url("./image/bìa.png");
+            background-size: cover;
+            opacity: 0.9; 
+            z-index: -1; /* Quan trọng: nằm sau nội dung */
+        }
+        * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding-top: 80px; /* dành khoảng trống cho header fixed */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background-color: #1e3a5f;
+      box-shadow: 0 2px 5px #1e3a5f;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo span {
+      font-weight: bold;
+      font-size: 18px;
+      color: white;
+    }
+
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    ul.menu > li {
+      position: relative;
+    }
+
+    ul.menu > li > a {
+      display: inline-block;
+      padding: 15px 5px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      min-width: 200px;
+      z-index: 1;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      border-radius: 6px;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: black;
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    li:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .caret i {
+      font-size: 10px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+
+    .icon-group {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .user-dropdown, .cart-icon {
+      position: relative;
+    }
+
+    .user-dropdown a, .cart-icon a {
+      display: block;
+      padding: 10px 15px;
+      font-size: 18px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .user-dropdown .dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  min-width: 150px;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  border-radius: 6px;
+}
+
+.user-dropdown .dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.user-dropdown .dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+.user-dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+}
+.icon-group a:hover {
+  color: #bcd9ff; 
+}
+ul.menu > li > a:hover {
+  color: #bcd9ff; }
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    footer {
+      background-color: #1e3a5f;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1 1 250px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #d0e2ff;
+      font-size: 14px;
+      text-decoration: none;
+      line-height: 1.6;
+    }
+
+    .footer-column a:hover {
+      text-decoration: underline;
+      color: #ffffff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 13px;
+      color: #ccc;
+    }
+
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+          <!-- Logo trái -->
+          <div class="logo">
+            <img src="./image/logowebsite.svg" alt="Logo">
+            <span>PRO-DIGI MARKETING</span>
+          </div>
+    
+          <!-- Menu giữa -->
+          <ul class="menu">
+            <li><a href="#">TRANG CHỦ</a></li>
+    
+            <li>
+              <a href="gioithieu.html">GIỚI THIỆU <span class="caret"><i class="fas fa-caret-down"></i></span></a>
+              <div class="dropdown-content">
+                <a href="vechungtoi.html">Về Pro-Digi Marketing</a>
+                <a href="tamnhin.html">Tầm nhìn & Sứ mệnh</a>
+                <a href="giangvien.html">Đội ngũ giảng viên</a>
+                <a href="camnhanhv.html">Cảm nhận học viên</a>
+              </div>
+            </li>
+    
+            <li>
+              <a href="TrangSPDVdemo2 (1).html">KHÓA HỌC <span class="caret"><i class="fas fa-caret-down"></i></span></a>
+              <div class="dropdown-content">
+                <a href="./digitalbranding.html">Digital Branding</a>
+                <a href="./datadriven.html">Data-driven Marketing </a>
+                <a href="digitalperformance.html">Digital Performance </a>
+                <a href="seochuyensau.html">SEO Marketing chuyên sâu </a>
+                <a href="mktfoundation.html">Marketing Foundation </a>
+                <a href="fullstackmkt.html">Full-stack Marketing </a>
+              </div>
+            </li>
+    
+            <li><a href="blog.html">BLOG</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="career.html">TUYỂN DỤNG</a></li>
+          </ul>
+    
+          <!-- Icon user và cart -->
+          <div class="icon-group">
+            <div class="usesr-dropdown">
+              <a href="signin.html" aria-label="Tài khoản"><i class="fas fa-user"></i></a>
+              
+            </div>
+            <div class="cart-icon">
+              <a href="giỏ-hàng.html" aria-label="Giỏ hàng"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    
+    
+    <img src = "./image/ảnh.jpg" class = "bia"> 
+    <!--Bạn cần gộp tất cả nội dung văn bản (bao gồm cả tiêu đề) vào một khối rồi mới đặt nó trong .story. Lúc này bạn có thể dùng flex để chia 2 khối: một khối là ảnh (hoặc tiêu đề nếu bạn dùng layout cũ), một khối là nội dung.--> 
+    <div class ="story"> 
+        <div class = "prodigi"> 
+            <h2><b>The story of Pro-digi </b></h2>
+            <p>
+                Khởi nguồn từ khát khao kiến tạo một thế hệ chuyên gia Digital Marketing xuất sắc, Pro-Digi Marketing ra đời với sứ mệnh đào tạo kỹ thuật Digital Marketing theo hình thức học offline. Chúng tôi tập trung xây dựng kiến thức và kỹ năng thực tế, giúp học viên sẵn sàng ứng dụng ngay sau khóa học. <br> <br> 
+                4 năm, hơn 7.000+ học viên, hàng trăm khóa học và sự kiện được tổ chức, cùng hàng nghìn bài viết chia sẻ tri thức đến cộng đồng. Pro-Digi Marketing đã trở thành cái tên quen thuộc với những ai đang trên hành trình nâng tầm kỹ năng Digital Marketing thực chiến.<br> <br>
+                Để chuẩn bị cho chặng đường phía trước, Pro-Digi Marketing tìm kiếm những cá nhân có cùng chí hướng – những người sẵn sàng đồng hành cùng chúng tôi trong hành trình lan tỏa giá trị và xây dựng cộng đồng Marketers đột phá.
+            </p>
+        </div>
+            <img src="./image/dao-tao-truong-phong-marketing.jpg" class ="img">
+     </div>
+    <div class = "value"> <!--hiện tại 1 div chung thì đang là 1 block, nếu muốn ảnh và text chia làm 2 bên đối diện thì mỗi cái 1 div -->
+        <!-- Nếu chỉ có 1 div và display flex thì: Tất cả 4 phần tử này sẽ được xếp hàng ngang như h2 | h3 | p | img. Sở dĩ phần trên ko cần tách div cho ảnh vì chỉ có 1 text 1 ảnh thôi còn đây là 3 text 1 ảnh nên ph div text riêng ảnh riêng--> 
+            <h2 class = "title">Giá trị bạn nhận được tại Pro-digi</h2>
+            <div class = "subtext"> 
+                <div class = "chubentrai"> 
+                    <h3> 01. Cơ hội phát triển không giới hạn</h3>
+                    <p>Tại Pro-Digi Marketing, bạn không chỉ có một công việc mà còn có lộ trình phát triển rõ ràng. Chúng tôi khuyến khích nhân sự học hỏi, nâng cao kỹ năng chuyên môn và tham gia các dự án thực chiến để từng bước phát triển sự nghiệp vững chắc.</p>
+                    <br>
+                    <hr width="500px" color="#1e3a5f">
+                    <br>
+                    <h3> 02. Liên tục được thử thách để trở thành phiên bản tốt nhất</h3>
+                    <p>Làm việc trong lĩnh vực Digital Marketing luôn đòi hỏi sự đổi mới và linh hoạt. Tại Pro-Digi Marketing, bạn sẽ liên tục được thử thách, học hỏi từ thực tế và phát triển tư duy giải quyết vấn đề, giúp bạn trở thành phiên bản ưu tú nhất của chính mình. </p>
+                    <br>
+                    <hr width="500px" color="#1e3a5f">
+                    <br>
+                    <h3> 03. Môi trường làm việc chủ động, sáng tạo </h3>
+                    <p>Chúng tôi đề cao sự chủ động và tinh thần sáng tạo trong công việc. Mọi ý tưởng đều được lắng nghe và trân trọng, giúp bạn có không gian để phát huy tối đa khả năng của mình.</p>
+                    <br>
+                    <hr width="500px" color="#1e3a5f">
+                    <br>
+                    <h3> 04. Đồng đội trẻ trung, nhiệt huyết & luôn hỗ trợ nhau</h3>
+                    <p>Tại Pro-Digi Marketing, bạn không làm việc một mình. Đồng đội của bạn là những người trẻ trung, năng động và luôn sẵn sàng hỗ trợ nhau vượt qua mọi thử thách, cùng hướng đến mục tiêu chung.</p>
+                </div>
+                <div class = "anh"> 
+                    <img src ="./image/team-building-la-gi.jpg" class = "img">
+                    <img src = "./image/fd922d97-99af-4ab5-b6ac-1d3e5c9d5669.jpg" class = "img"> 
+                </div>
+            </div>
+    </div>  
+    <div class = "vitri"> 
+        <h2>Các vị trí tuyển dụng hiện tại</h2>
+        <div class = "mota"> <!--có 1 div tổng cho phần tuyển dụng và có 3 div riêng nhưng cùng tên cho từng vị trí.-->
+            <div class = "textcon"> <!--div riêng cho text và button trong mỗi vị trí-->
+                <h3>Content Marketing</h3> 
+                <p>Full time</p>
+                <p>Prodigi - số 207 Giải Phóng, Đồng Tâm, Quận Hai Bà Trưng, Hà Nội</p> 
+            </div>
+            <button class="apply" onclick="window.open('contentmkt.html', '_blank')">Apply Now</button> 
+        </div>
+        <div class ="mota">
+            <div class = "textcon"> 
+                <h3>Designer</h3> 
+                <p>Parttime</p>
+                <p>Prodigi - số 207 Giải Phóng, Đồng Tâm, Quận Hai Bà Trưng, Hà Nội</p> 
+            </div>
+            <button class="apply" onclick="window.open('design.html', '_blank')">Apply Now</button>
+        </div>
+        <div class = "mota"> 
+            <div class = "textcon"> 
+                <h3>Sales Consultant</h3> 
+                <p>Hybrid</p>
+                <p>Prodigi - số 207 Giải Phóng, Đồng Tâm, Quận Hai Bà Trưng, Hà Nội</p> 
+            </div>
+            <button class="apply" onclick="window.open('sales.html', '_blank')">Apply Now</button>
+        </div>
+    </div>  
+   
+    <div class ="camnhan">
+        <h2>Cảm nhận của các nhân sự đồng hành cùng Pro-digi</h2>
+        <div class = "nguoi"> 
+            <div class = "textcuthe">
+                <h3> Lê Na - Sales Team </h3><br>
+                <p> Mới bắt đầu tại Prodigi, mình như bước vào một môi trường hoàn toàn mới mẻ và thử thách. Những khó khăn ban đầu trong việc làm quen quy trình và giao tiếp khách hàng dần được tháo gỡ nhờ sự hỗ trợ tận tâm của đồng nghiệp. Mỗi ngày trôi qua là một cơ hội để học cách xây dựng mối quan hệ bền vững và phát triển chiến lược bán hàng vừa mềm mỏng vừa quyết đoán, tạo ra giá trị thực sự.<br><br>
+
+                  Sau một năm, mình tự tin hơn rất nhiều – không chỉ trong giao tiếp mà còn trong việc phân tích thị trường và thấu hiểu nhu cầu khách hàng. Giờ đây, mình có thể linh hoạt xây dựng giải pháp bán hàng phù hợp từng đối tượng, tạo ra kết quả rõ rệt. Thời gian ở Prodigi đã giúp mình rèn giũa tư duy chiến lược, sự kiên trì và khả năng thích ứng – những yếu tố then chốt để vững bước trong nghề sales.
+                </p>
+            </div>
+            <div class ="canhan">
+                <img src="./image/na.jpg" class ="img"> 
+            </div>
+        </div>
+        <div class = "nguoi"> 
+            <div class = "textcuthe"> 
+                <h3> Thu Trang - Marketing Team  </h3> <br>
+                <p> 
+                  Mới bắt đầu làm intern tại Prodigi, mình như được “nhúng chân” vào thế giới marketing đầy sắc màu và thử thách. Những ngày đầu khá choáng ngợp với công cụ, dữ liệu và quy trình mới, nhưng nhờ sự hướng dẫn nhiệt tình từ các anh chị, mình nhanh chóng hòa nhập. Mình được tham gia vào các chiến dịch quảng cáo, lên ý tưởng sáng tạo và bắt đầu “đọc vị” thị trường tốt hơn qua từng ngày.<br> <br>
+
+                  Sau hai tháng, mình không chỉ rèn được khả năng làm việc dưới áp lực mà còn hiểu rõ cách kết hợp chiến lược để tối ưu hóa hiệu quả. Việc được cân nhắc lên vị trí chính thức là một dấu mốc ý nghĩa – chứng minh rằng mọi nỗ lực đều xứng đáng. Thời gian thực tập tại Prodigi không chỉ giúp mình phát triển kỹ năng mà còn tạo nền tảng vững chắc cho hành trình sự nghiệp phía trước.
+                </p>
+            </div>
+            <div class ="canhan">
+                <img src="./image/Trang lê.jpg" class ="img"> 
+            </div>
+        </div>
+        <div class = "nguoi"> 
+            <div class = "textcuthe"> 
+                <h3> Trang PhùngPhùng - Design/ Edit Team </h3><br>
+                <p>
+                  Gia nhập đội thiết kế tại Prodigi là một thử thách lớn với mình. Quá trình tuyển chọn khá khắt khe và những ngày đầu làm việc không hề dễ dàng – mình gặp nhiều khó khăn trong việc thích nghi và liên tục nhận được feedback. Có lúc mình đã tự hỏi liệu mình có phù hợp hay không. <br><br> 
+                  Nhưng thay vì nản lòng, mình chọn cách học hỏi từ những góp ý. Mỗi phản hồi là cơ hội để cải thiện và phát triển kỹ năng. Nhờ đó, mình dần hoàn thiện phong cách thiết kế, tự tin hơn trong công việc. Prodigi đã dạy mình rằng, chỉ cần kiên trì và cầu tiến, mình có thể vươn xa hơn trong sự nghiệp thiết kế.
+                                    
+                </p>
+            </div>
+            <div class ="canhan">
+                <img src="./image/trang xik.jpg" class ="img"> 
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+          <!-- Cột 1: Địa chỉ -->
+          <div class="footer-column">
+            <h3>Địa chỉ</h3>
+            <p>
+                207 Đ. Giải Phóng, Đồng Tâm, Hai Bà Trưng, Hà Nội<br></p>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.833310775197!2d105.8440128!3d20.9993179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad664898153b%3A0xe088894b6cf64ad9!2zVmnhu4duIMSQw6BvIFThuqFvIFF14buRYyBU4bq_IC0gTkVV!5e0!3m2!1svi!2s!4v1739790145738!5m2!1svi!2s" 
+              width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+    
+          <!-- Cột 2: Liên hệ -->
+          <div class="footer-column">
+            <h3>☎️Liên hệ tư vấn:</nav></h3>
+            <p>📧 Email: contact@pro-digimarketing.com</p>
+            <p>📞Hotline: +84xxxxxxxxxx</p>
+            <p>🌐 Website: www.prodigimarketing.com</p>
+          </div>
+    
+          <!-- Cột 3: Mạng xã hội -->
+          <div class="footer-column">
+            <h3>Kết nối</h3>
+            <p>
+              <a href="#">Facebook</a><br>
+              <a href="#">Instagram</a><br>
+              <a href="#">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+    
+        <div class="footer-bottom">
+          © 2025 Pro-Digi Marketing. All rights reserved.
+        </div>
+      </footer>
+    
+</body>
+</html>
